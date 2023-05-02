@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>retro</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 10px;
+		}
+		img {
+			width: 200px;
+			height: auto;
+		}
+	</style>
+	<script>
+		function cambiarImagen() {
+			var imagen = document.getElementById("imagen");
+			imagen.src = "MESSI.jpg";
+		}
+		function mostrarMensaje() {
+			alert("HOLA PROFE");
+		}
+		function mostrarValor() {
+			var input = document.getElementById("entrada");
+			var valor = input.value;
+			alert("El valor ingresado es: " + valor);
+		}
+	</script>
+</head>
+<body>
+	<h1>RETR0</h1>
+	<p>ESTA ES LA PAGINA WEB DE LA TAREA NUMERO 3.</p>
+	<a href="#" onclick="mostrarMensaje()">Haz clic aquí</a> para ver un mensaje.
+	<br><br>
+	<table>
+		<tr>
+			<th>Nombre</th>
+			<th>Edad</th>
+		</tr>
+		<tr>
+			<td>Juan</td>
+			<td>125</td>
+		</tr>
+		<tr>
+			<td>María</td>
+			<td>325</td>
+		</tr>
+	</table>
+	<br><br>
+	<img id="imagen" src="MESSI.jpg" onclick="cambiarImagen()">
+	<br><br>
+	<input type="text" id="entrada" onchange="mostrarValor()">
+</body>
+</html>

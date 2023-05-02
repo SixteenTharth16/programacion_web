@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario Dinámico Retr0</title>
+	<script src="validacion.js"></script>
+</head>
+<body>
+	<h1>Formulario Dinámico</h1>
+	<form id="formulario" name="formulario">
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre" required><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required><br>
+
+		<label for="telefono">Teléfono:</label>
+		<input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" required><br>
+
+		<label for="edad">Edad:</label>
+		<input type="number" id="edad" name="edad" min="18" max="99" required><br>
+
+		<label for="genero">Género:</label>
+		<select id="genero" name="genero">
+			<option value="masculino">Masculino</option>
+			<option value="femenino">Femenino</option>
+			<option value="otro">Otro</option>
+		</select><br>
+
+		<label for="comentarios">Comentarios:</label>
+		<textarea id="comentarios" name="comentarios" rows="5" cols="30"></textarea><br>
+
+		<input type="submit" value="Enviar">
+	</form>
+
+	<script>
+		
+		var genero = document.getElementById("genero");
+		var generoOtro = document.createElement("input");
+		generoOtro.type = "text";
+		generoOtro.name = "generoOtro";
+		generoOtro.placeholder = "Especifique su género";
+		generoOtro.style.display = "none";
+		generoOtro.required = true;
+		genero.parentNode.insertBefore(generoOtro, genero.nextSibling);
+
+		genero.addEventListener("change", function() {
+			if (genero.value == "otro") {
+				generoOtro.style.display = "block";
+			} else {
+				generoOtro.style.display = "none";
+			}
+		});
+
+
+		var formulario = document.getElementById("formulario");
+
+		formulario.addEventListener("submit", function(event) {
+			if (!validarFormulario()) {
+				event.preventDefault();
+			}
+		});
+	</script>
+</body>
+</html>
